@@ -1,81 +1,54 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
 
-```
-<meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+    <meta
+        name="description"
+        content="KIPS Students Council HSP Community — Student posts, discussions and anonymous confessions."
+    >
 
-<meta
-    name="description"
-    content="KIPS Students Council HSP Community — Student posts, discussions and anonymous confessions."
->
+    <meta
+        name="theme-color"
+        content="#635bff"
+    >
 
-<meta
-    name="theme-color"
-    content="#635bff"
->
+    <title>Community — KIPS Students Council HSP</title>
 
-<title>Community — KIPS Students Council HSP</title>
-
-<link
-    rel="stylesheet"
-    href="css/style.css"
->
-```
-
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 </head>
 
 <body>
-
-```
-<!-- =========================
-     HEADER
-========================== -->
 
 <header class="site-header">
 
     <div class="container nav-wrap">
 
-
         <a
             href="index.html"
             class="brand"
         >
-
-            <div class="brand-mark">
-                K
-            </div>
+            <div class="brand-mark">K</div>
 
             <div class="brand-text">
-
-                <strong>
-                    KIPS
-                </strong>
-
-                <span>
-                    Students Council HSP
-                </span>
-
+                <strong>KIPS</strong>
+                <span>Students Council HSP</span>
             </div>
-
         </a>
-
 
         <nav
             class="main-nav"
             id="mainNav"
         >
-
-            <a href="index.html">
-                Home
-            </a>
+            <a href="index.html">Home</a>
 
             <a
                 href="community.html"
@@ -84,24 +57,16 @@
                 Community
             </a>
 
-            <a href="elections.html">
-                Elections
-            </a>
+            <a href="elections.html">Elections</a>
 
-            <a href="events.html">
-                Events
-            </a>
+            <a href="events.html">Events</a>
 
             <a href="announcements.html">
                 Announcements
             </a>
 
-            <a href="gallery.html">
-                Gallery
-            </a>
-
+            <a href="gallery.html">Gallery</a>
         </nav>
-
 
         <div class="nav-actions">
 
@@ -118,7 +83,6 @@
             >
                 Join Us
             </a>
-
 
             <button
                 class="mobile-menu-btn"
@@ -137,15 +101,9 @@
 </header>
 
 
-
-<!-- =========================
-     MAIN
-========================== -->
-
 <main>
 
-
-    <!-- COMMUNITY HERO -->
+    <!-- HERO -->
 
     <section class="page-hero">
 
@@ -155,13 +113,11 @@
                 STUDENT COMMUNITY
             </span>
 
-
             <h1>
                 Your space.
                 Your voice.
                 Your community.
             </h1>
-
 
             <p>
                 Share what's happening, connect with
@@ -174,41 +130,65 @@
     </section>
 
 
-
-    <!-- COMMUNITY TABS -->
+    <!-- COMMUNITY -->
 
     <section class="community-section">
 
         <div class="container">
 
+            <!-- TABS -->
 
-            <div class="community-tabs">
+            <div
+                class="community-tabs"
+                role="tablist"
+                aria-label="Community sections"
+            >
 
                 <button
                     class="community-tab active"
+                    id="everyoneTab"
                     type="button"
+                    role="tab"
+                    aria-selected="true"
+                    data-community-tab="everyone"
                 >
                     Everyone
                 </button>
 
+                <button
+                    class="community-tab"
+                    id="confessionsTab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-community-tab="confessions"
+                >
+                    🤫 Confessions
+                </button>
 
                 <button
                     class="community-tab"
+                    id="messagesTab"
                     type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-community-tab="messages"
                 >
-                    🤫 Confessions
+                    💬 Messages
                 </button>
 
             </div>
 
 
+            <!-- =====================================
+                 EVERYONE PANEL
+            ====================================== -->
 
-            <!-- =========================
-                 EVERYONE CAN POST
-            ========================== -->
-
-            <section class="community-panel">
-
+            <section
+                class="community-panel"
+                id="everyonePanel"
+                data-community-panel="everyone"
+            >
 
                 <div class="community-panel-heading">
 
@@ -230,9 +210,9 @@
 
                     </div>
 
-
                     <button
                         class="btn btn-primary"
+                        id="createPostButton"
                         type="button"
                     >
                         + Create Post
@@ -241,21 +221,33 @@
                 </div>
 
 
-
                 <!-- POST COMPOSER -->
 
-                <div class="post-composer">
+                <div
+                    class="post-composer"
+                    id="postComposer"
+                >
 
                     <div class="composer-avatar">
                         ?
                     </div>
 
-
                     <div class="composer-content">
 
-                        <div class="composer-input">
-                            What's happening?
-                        </div>
+                        <textarea
+                            id="postText"
+                            class="composer-input"
+                            rows="3"
+                            placeholder="What's happening?"
+                            maxlength="2000"
+                        ></textarea>
+
+
+                        <div
+                            id="postFileName"
+                            class="selected-file-name"
+                            hidden
+                        ></div>
 
 
                         <div class="composer-actions">
@@ -263,39 +255,34 @@
                             <button
                                 type="button"
                                 class="composer-action"
+                                id="postPhotoButton"
                             >
                                 📷
-                                <span>
-                                    Photo
-                                </span>
+                                <span>Photo</span>
                             </button>
-
 
                             <button
                                 type="button"
                                 class="composer-action"
+                                id="postVideoButton"
                             >
                                 🎥
-                                <span>
-                                    Video
-                                </span>
+                                <span>Video</span>
                             </button>
-
 
                             <button
                                 type="button"
                                 class="composer-action"
+                                id="postFileButton"
                             >
                                 📎
-                                <span>
-                                    File
-                                </span>
+                                <span>File</span>
                             </button>
-
 
                             <button
                                 type="button"
                                 class="composer-post"
+                                id="publishPostButton"
                             >
                                 Post
                             </button>
@@ -307,41 +294,73 @@
                 </div>
 
 
+                <!-- HIDDEN FILE INPUTS -->
+
+                <input
+                    type="file"
+                    id="postPhotoInput"
+                    accept="image/*"
+                    hidden
+                >
+
+                <input
+                    type="file"
+                    id="postVideoInput"
+                    accept="video/*"
+                    hidden
+                >
+
+                <input
+                    type="file"
+                    id="postFileInput"
+                    hidden
+                >
+
 
                 <!-- FEED -->
 
-                <div class="feed-empty">
+                <div
+                    id="communityFeed"
+                    class="community-feed"
+                >
 
-                    <div class="feed-empty-icon">
-                        ✦
+                    <div
+                        class="feed-empty"
+                        id="feedEmpty"
+                    >
+
+                        <div class="feed-empty-icon">
+                            ✦
+                        </div>
+
+                        <h3>
+                            Your community feed starts here.
+                        </h3>
+
+                        <p>
+                            Create the first post and it will
+                            appear here.
+                        </p>
+
                     </div>
-
-
-                    <h3>
-                        Your community feed starts here.
-                    </h3>
-
-
-                    <p>
-                        Once students start posting,
-                        their updates will appear here.
-                    </p>
 
                 </div>
 
             </section>
 
 
+            <!-- =====================================
+                 CONFESSION PANEL
+            ====================================== -->
 
-            <!-- =========================
-                 CONFESSION CORNER
-            ========================== -->
-
-            <section class="confession-section">
-
+            <section
+                class="confession-section"
+                id="confessionsPanel"
+                data-community-panel="confessions"
+                hidden
+            >
 
                 <div class="confession-header">
-
 
                     <div>
 
@@ -349,40 +368,29 @@
                             PRIVATE IDENTITY · PUBLIC CONVERSATION
                         </span>
 
-
                         <h2>
                             🤫 Confession Corner
                         </h2>
 
-
                         <p>
-                            Say what's on your mind.
-                            You can show your profile or
-                            hide your identity from other
-                            students.
+                            Share something with the student
+                            community. You decide whether your
+                            public identity is shown.
                         </p>
 
                     </div>
 
-
                     <div class="confession-badge">
-
-                        <span>
-                            🔐
-                        </span>
-
+                        <span>🔐</span>
                         Identity protected
-
                     </div>
 
                 </div>
 
 
-
-                <!-- CONFESSION INFO -->
+                <!-- INFO CARDS -->
 
                 <div class="confession-info-grid">
-
 
                     <div class="confession-info-card">
 
@@ -390,11 +398,9 @@
                             01
                         </div>
 
-
                         <h3>
                             Write your confession
                         </h3>
-
 
                         <p>
                             Share text, photos or videos
@@ -404,26 +410,22 @@
                     </div>
 
 
-
                     <div class="confession-info-card">
 
                         <div class="info-number">
                             02
                         </div>
 
-
                         <h3>
                             Choose your identity
                         </h3>
 
-
                         <p>
-                            Post using your profile or
-                            appear as Anonymous to students.
+                            Post using your profile or appear
+                            as Anonymous to other students.
                         </p>
 
                     </div>
-
 
 
                     <div class="confession-info-card">
@@ -432,15 +434,13 @@
                             03
                         </div>
 
-
                         <h3>
                             Join the conversation
                         </h3>
 
-
                         <p>
-                            Other students can like,
-                            comment and report content.
+                            Students can like, comment and
+                            report content.
                         </p>
 
                     </div>
@@ -448,11 +448,9 @@
                 </div>
 
 
-
                 <!-- CONFESSION COMPOSER -->
 
                 <div class="confession-composer">
-
 
                     <div class="confession-composer-top">
 
@@ -462,62 +460,79 @@
                                 CREATE CONFESSION
                             </span>
 
-
                             <h3>
                                 What do you want to share?
                             </h3>
 
                         </div>
 
-
-                        <span class="anonymous-preview">
-                            👤 Anonymous
+                        <span
+                            class="anonymous-preview"
+                            id="identityPreview"
+                        >
+                            🕶️ Anonymous
                         </span>
 
                     </div>
 
 
-
-                    <div
+                    <textarea
+                        id="confessionText"
                         class="confession-textarea"
-                        role="textbox"
-                        aria-label="Confession text"
-                    >
-                        Write your confession here...
-                    </div>
+                        rows="6"
+                        maxlength="3000"
+                        placeholder="Write your confession here..."
+                    ></textarea>
 
 
-
-                    <!-- MEDIA OPTIONS -->
+                    <!-- CONFESSION MEDIA -->
 
                     <div class="confession-media">
 
                         <button
                             type="button"
                             class="media-button"
+                            id="confessionPhotoButton"
                         >
                             📷
-                            <span>
-                                Add Photo
-                            </span>
+                            <span>Add Photo</span>
                         </button>
-
 
                         <button
                             type="button"
                             class="media-button"
+                            id="confessionVideoButton"
                         >
                             🎥
-                            <span>
-                                Add Video
-                            </span>
+                            <span>Add Video</span>
                         </button>
 
                     </div>
 
 
+                    <input
+                        type="file"
+                        id="confessionPhotoInput"
+                        accept="image/*"
+                        hidden
+                    >
 
-                    <!-- IDENTITY CHOICE -->
+                    <input
+                        type="file"
+                        id="confessionVideoInput"
+                        accept="video/*"
+                        hidden
+                    >
+
+
+                    <div
+                        id="confessionFileName"
+                        class="selected-file-name"
+                        hidden
+                    ></div>
+
+
+                    <!-- IDENTITY -->
 
                     <div class="identity-choice">
 
@@ -539,6 +554,7 @@
                             <input
                                 type="radio"
                                 name="identity"
+                                value="profile"
                             >
 
                             <span class="identity-option-content">
@@ -548,7 +564,8 @@
                                 </strong>
 
                                 <small>
-                                    Other students can see your account.
+                                    Other students can see your
+                                    account.
                                 </small>
 
                             </span>
@@ -561,6 +578,7 @@
                             <input
                                 type="radio"
                                 name="identity"
+                                value="anonymous"
                                 checked
                             >
 
@@ -572,7 +590,8 @@
 
                                 <small>
                                     Other students will see
-                                    “Anonymous” instead of your identity.
+                                    "Anonymous" instead of your
+                                    identity.
                                 </small>
 
                             </span>
@@ -582,8 +601,7 @@
                     </div>
 
 
-
-                    <!-- ADMIN NOTICE -->
+                    <!-- ADMIN PRIVACY -->
 
                     <div class="admin-privacy-notice">
 
@@ -591,17 +609,15 @@
                             🔐
                         </span>
 
-
                         <div>
 
                             <strong>
                                 Important privacy information
                             </strong>
 
-
                             <p>
-                                Anonymous means your identity
-                                is hidden from other students.
+                                Anonymous means your identity is
+                                hidden from other students.
                                 Authorized council administrators
                                 can still see who submitted a
                                 confession for moderation and safety.
@@ -612,6 +628,7 @@
                     </div>
 
 
+                    <!-- SUBMIT -->
 
                     <div class="confession-submit-row">
 
@@ -619,10 +636,10 @@
                             Please keep the community respectful.
                         </span>
 
-
                         <button
                             type="button"
                             class="btn btn-primary"
+                            id="publishConfessionButton"
                         >
                             Publish Confession
                         </button>
@@ -630,7 +647,6 @@
                     </div>
 
                 </div>
-
 
 
                 <!-- CONFESSION FEED -->
@@ -652,21 +668,90 @@
                 </div>
 
 
-                <div class="confession-empty">
+                <div
+                    id="confessionFeed"
+                    class="confession-feed"
+                >
 
-                    <div class="confession-empty-icon">
-                        🤫
+                    <div
+                        class="confession-empty"
+                        id="confessionEmpty"
+                    >
+
+                        <div class="confession-empty-icon">
+                            🤫
+                        </div>
+
+                        <h3>
+                            No confessions yet.
+                        </h3>
+
+                        <p>
+                            Be the first student to share
+                            something with the community.
+                        </p>
+
                     </div>
 
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 MESSAGES PANEL
+            ====================================== -->
+
+            <section
+                class="community-panel"
+                id="messagesPanel"
+                data-community-panel="messages"
+                hidden
+            >
+
+                <div class="community-panel-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            PRIVATE MESSAGES
+                        </span>
+
+                        <h2>
+                            Student Messages
+                        </h2>
+
+                        <p>
+                            Private one-to-one messaging will
+                            be connected to student accounts
+                            and Supabase in the next backend step.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="login.html"
+                        class="btn btn-primary"
+                    >
+                        Login to Message
+                    </a>
+
+                </div>
+
+
+                <div class="feed-empty">
+
+                    <div class="feed-empty-icon">
+                        💬
+                    </div>
 
                     <h3>
-                        No confessions yet.
+                        Private conversations
                     </h3>
 
-
                     <p>
-                        Be the first student to share
-                        something with the community.
+                        The messaging interface is ready for
+                        the real-time Supabase connection.
                     </p>
 
                 </div>
@@ -678,8 +763,7 @@
     </section>
 
 
-
-    <!-- COMMUNITY RULES -->
+    <!-- GUIDELINES -->
 
     <section class="section section-alt">
 
@@ -691,24 +775,20 @@
                     COMMUNITY GUIDELINES
                 </span>
 
-
                 <h2>
                     Keep this space safe for everyone.
                 </h2>
 
-
                 <p>
-                    Students can express themselves,
-                    but posts and confessions must
-                    follow the council's community rules.
+                    Students can express themselves, but
+                    posts and confessions must follow the
+                    council's community rules.
                 </p>
 
-
                 <p>
-                    Content can be reported, and
-                    authorized administrators can
-                    review reported material and
-                    moderation information.
+                    Content can be reported, and authorized
+                    administrators can review reported material
+                    and moderation information.
                 </p>
 
             </div>
@@ -716,56 +796,24 @@
 
             <div class="stats-panel">
 
-
                 <div class="stat">
-
-                    <strong>
-                        01
-                    </strong>
-
-                    <span>
-                        Respect Others
-                    </span>
-
+                    <strong>01</strong>
+                    <span>Respect Others</span>
                 </div>
 
-
                 <div class="stat">
-
-                    <strong>
-                        02
-                    </strong>
-
-                    <span>
-                        No Harassment
-                    </span>
-
+                    <strong>02</strong>
+                    <span>No Harassment</span>
                 </div>
 
-
                 <div class="stat">
-
-                    <strong>
-                        03
-                    </strong>
-
-                    <span>
-                        Report Problems
-                    </span>
-
+                    <strong>03</strong>
+                    <span>Report Problems</span>
                 </div>
 
-
                 <div class="stat">
-
-                    <strong>
-                        04
-                    </strong>
-
-                    <span>
-                        Admin Moderation
-                    </span>
-
+                    <strong>04</strong>
+                    <span>Admin Moderation</span>
                 </div>
 
             </div>
@@ -774,19 +822,14 @@
 
     </section>
 
-
 </main>
 
 
-
-<!-- =========================
-     FOOTER
-========================== -->
+<!-- FOOTER -->
 
 <footer class="site-footer">
 
     <div class="container footer-grid">
-
 
         <div>
 
@@ -800,26 +843,16 @@
                 </div>
 
                 <div class="brand-text">
-
-                    <strong>
-                        KIPS
-                    </strong>
-
-                    <span>
-                        Students Council HSP
-                    </span>
-
+                    <strong>KIPS</strong>
+                    <span>Students Council HSP</span>
                 </div>
 
             </a>
 
-
             <p>
-                A digital platform for student
-                leadership, participation,
-                communication and community.
+                A digital platform for student leadership,
+                participation, communication and community.
             </p>
-
 
             <a
                 href="https://www.instagram.com/kipsstudentcouncil/"
@@ -833,15 +866,11 @@
         </div>
 
 
-
         <div class="footer-links">
-
 
             <div>
 
-                <h4>
-                    Platform
-                </h4>
+                <h4>Platform</h4>
 
                 <a href="community.html">
                     Community
@@ -864,9 +893,7 @@
 
             <div>
 
-                <h4>
-                    Council
-                </h4>
+                <h4>Council</h4>
 
                 <a href="about.html">
                     About
@@ -894,7 +921,8 @@
     <div class="container footer-bottom">
 
         <span>
-            © 2026 KIPS Students Council HSP
+            © <span data-current-year>2026</span>
+            KIPS Students Council HSP
         </span>
 
         <span>
@@ -906,10 +934,7 @@
 </footer>
 
 
-
 <script src="js/app.js"></script>
-```
 
 </body>
-
 </html>
